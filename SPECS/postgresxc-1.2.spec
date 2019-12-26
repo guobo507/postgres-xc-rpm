@@ -33,7 +33,7 @@
 
 Summary:	Postgres-XC client programs and libraries
 Name:		%{oname}%{packageversion}
-Version:	%{majorversion}.0beta
+Version:	%{majorversion}.1
 Release:	1PGDG%{?dist}
 License:	PostgreSQL
 Group:		Applications/Databases
@@ -281,7 +281,7 @@ benchmarks.
 %define __perl_requires %{SOURCE4}
 
 %prep
-%setup -q -n postgres-xc-%{majorversion}.0_beta
+%setup -q -n postgres-xc-%{majorversion}.1
 %patch1 -p0
 %patch2 -p0
 %patch3 -p0
@@ -719,6 +719,10 @@ fi
 %{pgbaseinstdir}/share/man/man1/vacuumdb.*
 %{pgbaseinstdir}/share/man/man3/*
 %{pgbaseinstdir}/share/man/man7/*
+%{pgbaseinstdir}/share/man/man1/pgxc_clean.1
+%{pgbaseinstdir}/share/man/man1/pgxc_ctl.1
+%{pgbaseinstdir}/share/man/man1/pgxc_ddl.1
+%{pgbaseinstdir}/share/man/man1/pgxc_monitor.1
 
 %files docs
 %defattr(-,root,root)
@@ -917,7 +921,7 @@ fi
 %{pgbaseinstdir}/share/man/man1/gtm_ctl.*
 %{pgbaseinstdir}/share/man/man1/gtm_proxy.*
 %{pgbaseinstdir}/share/man/man1/initgtm.*
-%{pgbaseinstdir}/share/man/man1/postgres.*
+#%{pgbaseinstdir}/share/man/man1/postgres.*
 
 %attr(700,postgres,postgres) %dir /var/lib/%{sname}
 %attr(700,postgres,postgres) %dir /var/lib/%{sname}/%{majorversion}
@@ -976,5 +980,5 @@ fi
 %endif
 
 %changelog
-* Wed Feb 19 2014 David E. Wheeler <david@justatheory.com> - 1.2.0beta-1PGDG
+* Wed Feb 19 2014 David E. Wheeler <david@justatheory.com> - 1.2.1-1PGDG
 - Initial cut for 1.2.
